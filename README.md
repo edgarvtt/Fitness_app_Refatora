@@ -28,20 +28,21 @@ todas as funcionalidades foram aplicadas corretamentes após testes, são elas:
 
 "referência do código original"
 
-` fitness_app/<br/>
-├── main.py                     # Ponto de entrada CLI<br/>
-├── requirements.txt            # Dependências do projeto<br/>
+```text
+fitness_app/
+├── main.py                     # Ponto de entrada CLI
+├── requirements.txt            # Dependências do projeto
 │
-├── core/                       # Núcleo do sistema<br/>
-│   ├── models.py              # Todos os modelos com OOP<br/>
-│   ├── database.py            # Repository Pattern + TinyDB<br/>
-│   ├── auth.py                # Sistema de autenticação<br/>
-│   ├── abc.py                 # Classes abstratas<br/>
-│   └── utils.py               # Utilitários<br/>
+├── core/                       # Núcleo do sistema
+│   ├── models.py              # Todos os modelos com OOP
+│   ├── database.py            # Repository Pattern + TinyDB
+│   ├── auth.py                # Sistema de autenticação
+│   ├── abc.py                 # Classes abstratas
+│   └── utils.py               # Utilitários
 │
-├── services/                   # Camada de negócios<br/>
-│   ├── workout.py             # Serviço de treinos<br/>
-│   ├── activity.py            # Serviço de atividades<br/>
+├── services/                   # Camada de negócios
+│   ├── workout.py             # Serviço de treinos
+│   ├── activity.py            # Serviço de atividades
 │   ├── nutrition.py           # Serviço nutricional
 │   ├── goal.py                # Serviço de metas
 │   ├── wearable.py            # Serviço wearable
@@ -63,5 +64,6 @@ todas as funcionalidades foram aplicadas corretamentes após testes, são elas:
 │
 └── scripts/                    # Scripts auxiliares
     ├── gerar_dados.py         # Gerador de dados simulados
-    └── seed_database.py       # Populador do banco`
+    └── seed_database.py       # Populador do banco
+
  
