@@ -1,10 +1,6 @@
 # 🏋 Fitness_app_Refatoração 
 
-Código Original: https://github.com/jfdt10/Projeto_Software_OO_Fitness_App 
-
-Sistema completo de gerenciamento fitness desenvolvido com foco em Programação Orientada a Objetos, demonstrando os Cinco pilares fundamentais: Herança, Polimorfismo, Encapsulamento, Abstração e Composição.</br>
-
-**agora neste repositório** será aplicado melhorias e uma refatoração usando padrões de projeto
+Código Original: https://github.com/jfdt10/Projeto_Software_OO_Fitness_App , será refatorado com padrões de projeto
 
 **Observação caro leitor(a) 🙂:** Emoticons foram usados de forma intencional para tornar a leitura mais leve e dinâmica, principalmente para destacar algumas parte do texto. Eles fazem parte de uma proposta de leitura simplificada e não são resultado de um simples ctrl+c/ctrl+v de uma LLM (que costuma usar a mesma prática). Todo o conteúdo foi escrito manualmente pelo autor deste repositório, e considero importante destacar isso para evitar qualquer ambiguidade, obrigado.
 
