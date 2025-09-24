@@ -3,6 +3,7 @@
 Código Original: https://github.com/jfdt10/Projeto_Software_OO_Fitness_App 
 
 Sistema completo de gerenciamento fitness desenvolvido com foco em Programação Orientada a Objetos, demonstrando os Cinco pilares fundamentais: Herança, Polimorfismo, Encapsulamento, Abstração e Composição.
+</br>
 **agora neste repositório** será aplicado melhorias e uma refatoração usando padrões de projeto
 
 <img width="1002" height="552" alt="image" src="https://github.com/user-attachments/assets/11ccd226-5d4f-42ed-97e3-22e996c0088b" />
