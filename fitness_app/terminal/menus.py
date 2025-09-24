@@ -19,6 +19,9 @@ from fitness_app.terminal.interface import (
 from fitness_app.core.models import PlanoTreino
 import os
 
+from fitness_app.factories import ServiceFactory
+
+
 # Instanciação de Objetos - cada serviço é uma instância de classe específica
 servico_atividade = ServicoAtividade()
 servico_nutricional = ServicoNutricional()
@@ -273,7 +276,7 @@ def alterar_senha_usuario(auth, usuario_logado):
     except Exception as e:
         print(f"Erro ao alterar senha: {e}")
 
-def gerenciar_treinos(usuario_logado):
+def gerenciar_treinos(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_treinos()
         if subop == "1":
@@ -526,7 +529,7 @@ def gerenciar_treinos(usuario_logado):
             print("Opção inválida.")
 
 
-def gerenciar_atividades(usuario_logado):
+def gerenciar_atividades(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_atividades()
         if subop == "1":
@@ -653,7 +656,7 @@ def gerenciar_atividades(usuario_logado):
             print("Opção inválida.")
 
 
-def gerenciar_nutricao(usuario_logado):
+def gerenciar_nutricao(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_nutricao()
         if subop == "1":
@@ -855,7 +858,7 @@ def gerenciar_nutricao(usuario_logado):
             break
         else:
             print("Opção inválida.")
-def gerenciar_metas(usuario_logado):
+def gerenciar_metas(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_metas()
         if subop == "1":
@@ -942,7 +945,7 @@ def gerenciar_metas(usuario_logado):
             print("Opção inválida.")
 
 
-def gerenciar_wearable(usuario_logado):
+def gerenciar_wearable(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_wearable()
         if subop == "1":
@@ -1082,7 +1085,7 @@ def gerenciar_wearable(usuario_logado):
         else:
             print("Opção inválida.")
 
-def gerenciar_social(usuario_logado):
+def gerenciar_social(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_social()
         if subop == "1":
@@ -1192,7 +1195,7 @@ def gerenciar_social(usuario_logado):
             print("Opção inválida.")
 
 
-def gerenciar_videos(usuario_logado):
+def gerenciar_videos(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_videos()
         if subop == "1":
@@ -1255,7 +1258,7 @@ def gerenciar_videos(usuario_logado):
             print("Opção inválida.")
 
 
-def gerenciar_recomendacoes(usuario_logado, auth: ServicoAutenticacao):
+def gerenciar_recomendacoes(usuario_logado, auth: ServicoAutenticacao,ServiceFactory):
     preferencias_usuario = servico_recomendacao.map_preferencias_usuario(usuario_logado)
     
     while True:
@@ -1421,7 +1424,7 @@ def gerenciar_recomendacoes(usuario_logado, auth: ServicoAutenticacao):
             print("Opção inválida.")
 
 
-def gerenciar_feedback(usuario_logado):
+def gerenciar_feedback(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_feedback()
         if subop == "1":
@@ -1523,7 +1526,7 @@ def gerenciar_feedback(usuario_logado):
             print("Opção inválida.")
 
 
-def gerenciar_forum(usuario_logado):
+def gerenciar_forum(usuario_logado,ServiceFactory):
     while True:
         subop = exibir_menu_forum()
         if subop == "1":
