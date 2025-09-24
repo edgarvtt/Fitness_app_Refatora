@@ -8,7 +8,7 @@ Sistema completo de gerenciamento fitness desenvolvido com foco em Programação
 
 V.1.2 Aplicando Padrões de Projetos 
 
-[versões anteriores](</details>)
+[versões anteriores]()
 
 ## Funcionalidades
 
@@ -118,7 +118,4 @@ python -m fitness_app.main
 ```
 
 ## Versões Anteriores
-<details> 
-    ### V.1 - Início 
 V.1.0 Refatoração - Analisando os requesitos funcionais
-</details>
