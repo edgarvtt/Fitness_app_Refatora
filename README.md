@@ -37,7 +37,7 @@ todas as funcionalidades foram aplicadas corretamentes após testes, são elas:
 
 Abaixo estão os Padrões de Projetos Criacionais adotados para a refatoração do Projeto
 
-## Abstract Factory 
+## 🏭 Abstract Factory 
 
 foi implementado o padrão 'Abstract Factory' para centralizar e desagrupar a criação dos "Serviços" (como ServicoTreino, ServicoAtividade, etc...) da lógica principal do app.<br/>
 
