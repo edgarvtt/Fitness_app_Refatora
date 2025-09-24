@@ -75,11 +75,11 @@ fitness_app/
 
 "referência do código original"
 
-### Requisitos
+### |_ Requisitos
 Python 3.8 ou superior<br/>
 Dependências listadas em requirements.txt
 
-### Passos de instalação
+### |_ Passos de instalação
 
 ####  ★ Clone o repositório:
 
