@@ -8,7 +8,7 @@ Sistema completo de gerenciamento fitness desenvolvido com foco em Programação
 
 V.1.2 Aplicando Padrões de Projetos 
 
-[versões anteriores]()
+[versões anteriores](https://github.com/edgarvtt/Fitness_app_Refatora?tab=readme-ov-file#vers%C3%B5es-anteriores)
 
 ## Funcionalidades
 
