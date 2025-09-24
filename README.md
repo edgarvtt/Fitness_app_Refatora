@@ -74,3 +74,43 @@ fitness_app/
 Python 3.8 ou superior<br/>
 Dependências listadas em requirements.txt
 
+### Passos de instalação
+
+#### Clone o repositório:
+
+```
+git clone https://github.com/jfdt10/Projeto_Software_OO_Fitness_App.git
+cd Projeto_Software_OO_Fitness_App
+
+```
+#### Crie um ambiente virtual:
+
+```
+python -m venv venv
+
+
+# Windows
+venv\Scripts\activate
+
+# Linux/Mac
+source venv/bin/activate
+
+```
+
+#### Instale as dependências:
+```
+pip install -r requirements.txt
+```
+
+#### Configure o banco de dados:
+
+```
+
+# Popular com dados iniciais
+python -m fitness_app.scripts.seed_database
+
+# Gerar dados simulados (opcional)
+python -m fitness_app.scripts.gerar_dados
+
+```
+
