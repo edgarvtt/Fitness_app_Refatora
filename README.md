@@ -76,14 +76,14 @@ Dependências listadas em requirements.txt
 
 ### Passos de instalação
 
-#### Clone o repositório:
+####  ★ Clone o repositório:
 
 ```
 git clone https://github.com/jfdt10/Projeto_Software_OO_Fitness_App.git
 cd Projeto_Software_OO_Fitness_App
 
 ```
-#### Crie um ambiente virtual:
+####  ★ Crie um ambiente virtual:
 
 ```
 python -m venv venv
@@ -97,12 +97,12 @@ source venv/bin/activate
 
 ```
 
-#### Instale as dependências:
+####  ★ Instale as dependências:
 ```
 pip install -r requirements.txt
 ```
 
-#### Configure o banco de dados:
+####  ★ Configure o banco de dados:
 
 ```
 
