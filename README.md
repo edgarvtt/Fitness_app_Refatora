@@ -6,7 +6,7 @@ Sistema completo de gerenciamento fitness desenvolvido com foco em Programação
 
 ## Status Atual 
 
-V.1.0 Refatoração - Analisando os requesitos 
+V.1.0 Refatoração - Analisando os requesitos funcionais
 
 ## Funcionalidades
 
@@ -65,5 +65,12 @@ fitness_app/
 └── scripts/                    # Scripts auxiliares
     ├── gerar_dados.py         # Gerador de dados simulados
     └── seed_database.py       # Populador do banco
+```
+## Instalação e Configuração
 
- 
+"referência do código original"
+
+### Requisitos
+Python 3.8 ou superior<br/>
+Dependências listadas em requirements.txt
+
