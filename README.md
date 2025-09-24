@@ -31,6 +31,18 @@ todas as funcionalidades foram aplicadas corretamentes após testes, são elas:
 ✅ Conteúdo educativo com integração de vídeos <br/>
 ✅ Recomendações personalizadas baseadas no perfil <br/>
 
+# Padrões de Projeto
+
+Abaixo estão os Padrões de Projetos Criacionais adotados para a refatoração do Projeto
+
+## Abstract Factory 
+
+foi implementado o padrão 'Abstract Factory' para centralizar e desagrupar a criação dos "Serviços" (como ServicoTreino, ServicoAtividade, etc...) da lógica principal do app.</br>
+
+**Problema:** Antes, o arquivo main.py criava cada serviço diretamente o que o deixava ele dependente da nossa implementação específica de banco de dados, o TinyDB.</br>
+**Solução:** Construi uma "Factory" (TinyDBServiceFactory) que é a única responsável por saber como construir todos os serviços. O main.py agora apenas instancia essa fábrica uma vez e a distribui para onde for necessário.</br>
+**Benefício:** Se no futuro quiser trocar o TinyDB por outro banco de dados, só precisaremos criar uma nova fábrica. O resto do código não precisa de nenhuma alteração, tornando o sistema muito mais flexível e fácil de manter.
+
 ## Estrutura do Projeto 
 
 "referência do código original"
@@ -121,20 +133,6 @@ python -m fitness_app.scripts.gerar_dados
 ```
 python -m fitness_app.main
 ```
-
-# Padrões de Projeto
-
-Abaixo estão os Padrões de Projetos Criacionais adotados para a refatoração do Projeto
-
-## Abstract Factory 
-
-foi implementado o padrão 'Abstract Factory' para centralizar e desagrupar a criação dos "Serviços" (como ServicoTreino, ServicoAtividade, etc...) da lógica principal do app.
-
-**Problema:** Antes, o arquivo main.py criava cada serviço diretamente o que o deixava ele dependente da nossa implementação específica de banco de dados, o TinyDB.
-</br>
-**Solução:** Construi uma "Factory" (TinyDBServiceFactory) que é a única responsável por saber como construir todos os serviços. O main.py agora apenas instancia essa fábrica uma vez e a distribui para onde for necessário.
-</br>
-**Benefício:** Se no futuro quiser trocar o TinyDB por outro banco de dados, só precisaremos criar uma nova fábrica. O resto do código não precisa de nenhuma alteração, tornando o sistema muito mais flexível e fácil de manter.
 
 ## Versões Anteriores
 V.1.0 Refatoração - Analisando os requesitos funcionais
