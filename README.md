@@ -26,9 +26,9 @@ todas as funcionalidades foram aplicadas corretamentes após testes, são elas:
 
 ## Estrutura do Projeto 
 
-`referência do código original"
+"referência do código original"
 
-'fitness_app/
+` fitness_app/
 ├── main.py                     # Ponto de entrada CLI
 ├── requirements.txt            # Dependências do projeto
 │
