@@ -4,9 +4,9 @@ Código Original: https://github.com/jfdt10/Projeto_Software_OO_Fitness_App
 
 Sistema completo de gerenciamento fitness desenvolvido com foco em Programação Orientada a Objetos, demonstrando os Cinco pilares fundamentais: Herança, Polimorfismo, Encapsulamento, Abstração e Composição.
 
-## Status Atual 
+## Versão Atual 
 
-V.1.0 Refatoração - Analisando os requesitos funcionais
+V.1.2 Aplicando Padrões de Projetos 
 
 ## Funcionalidades
 
@@ -80,21 +80,19 @@ Dependências listadas em requirements.txt
 
 ```
 git clone https://github.com/jfdt10/Projeto_Software_OO_Fitness_App.git
-cd Projeto_Software_OO_Fitness_App
 
+cd Projeto_Software_OO_Fitness_App
 ```
 ####  ★ Crie um ambiente virtual:
 
 ```
 python -m venv venv
 
-
 # Windows
 venv\Scripts\activate
 
 # Linux/Mac
 source venv/bin/activate
-
 ```
 
 ####  ★ Instale as dependências:
@@ -105,7 +103,6 @@ pip install -r requirements.txt
 ####  ★ Configure o banco de dados:
 
 ```
-
 # Popular com dados iniciais
 python -m fitness_app.scripts.seed_database
 
@@ -113,4 +110,10 @@ python -m fitness_app.scripts.seed_database
 python -m fitness_app.scripts.gerar_dados
 
 ```
-
+#### Interface de Terminal
+```
+python -m fitness_app.main
+```
+<details> 
+V.1.0 Refatoração - Analisando os requesitos funcionais
+</details>
