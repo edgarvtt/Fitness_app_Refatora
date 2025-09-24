@@ -8,7 +8,7 @@ Sistema completo de gerenciamento fitness desenvolvido com foco em Programação
 
 V.1.2 Aplicando Padrões de Projetos 
 
-[versões anteriores](
+[versões anteriores](</details>)
 
 ## Funcionalidades
 
