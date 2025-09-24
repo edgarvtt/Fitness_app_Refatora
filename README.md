@@ -6,7 +6,7 @@ Sistema completo de gerenciamento fitness desenvolvido com foco em Programação
 
 **agora neste repositório** será aplicado melhorias e uma refatoração usando padrões de projeto
 
-Observação caro leitor(a) 🙂: emotics foram usados intencionalmente para este arquivo não ficar lotado de texto, os emotics estão ligado a leitura simplificada e não parte de um crtl+c , crtl+v de uma inteligência artificial, todo material foi escrito pelo autor deste repositório e acho importante deixar claro para não haver ambiguidade. 
+**Observação caro leitor(a) 🙂:** Emoticons foram usados de forma intencional para tornar a leitura mais leve e dinâmica, principalmente para destacar algumas parte do texto. Eles fazem parte de uma proposta de leitura simplificada e não são resultado de um simples ctrl+c/ctrl+v de uma inteligência artificial. Todo o conteúdo foi escrito manualmente pelo autor deste repositório, e considero importante destacar isso para evitar qualquer ambiguidade, por não ser uma documentação técnica então aproveitei a oportunidade, obrigado(a).
 
 <img width="1002" height="552" alt="image" src="https://github.com/user-attachments/assets/11ccd226-5d4f-42ed-97e3-22e996c0088b" />
 
