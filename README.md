@@ -9,7 +9,7 @@ Código Original: https://github.com/jfdt10/Projeto_Software_OO_Fitness_App , se
 
 ## Versão Atual 
 
-V.1.2 Aplicando Padrões de Projetos 
+V.1.3 Aplicando Padrões de Projetos - Comportamentais
 
 [versões anteriores](https://github.com/edgarvtt/Fitness_app_Refatora?tab=readme-ov-file#vers%C3%B5es-anteriores)
 
@@ -142,3 +142,5 @@ python -m fitness_app.main
 
 ## Versões Anteriores
 V.1.0 Refatoração - Analisando os requesitos funcionais
+V.1.1 Aplicando Padrões de Projetos Criacionais
+V.1.2 Aplicando Padrões de Projetos Comportamentais
