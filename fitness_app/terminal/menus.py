@@ -10,12 +10,27 @@ from fitness_app.services.social import ServicoSocial
 from fitness_app.services.video import ServicoVideo
 from fitness_app.services.recommendation import ServicoRecomendacao
 from datetime import datetime
+
+from fitness_app.terminal.interface import (
+    exibir_menu_treinos
+)
 from fitness_app.terminal.interface import (
     exibir_menu_atividades, exibir_menu_treinos, exibir_menu_nutricao,
-    exibir_menu_metas, exibir_menu_forum, exibir_menu_feedback,
-    exibir_menu_wearable, exibir_menu_social, exibir_menu_videos,
-    exibir_menu_recomendacoes
+    exibir_menu_metas, exibir_menu_wearable, exibir_menu_social,
+    exibir_menu_videos, exibir_menu_recomendacoes, exibir_menu_feedback,
+    exibir_menu_forum
 )
+
+from fitness_app.commands import (
+    ListarPlanosTreinoCommand,
+    CriarPlanoTreinoCommand,
+    DeletarPlanoTreinoCommand,
+    AssociarVideoCommand,
+    AdicionarExercicioCommand,
+    RemoverExercicioCommand,
+    AtualizarPlanoCommand
+)
+
 from fitness_app.core.models import PlanoTreino
 import os
 
@@ -48,7 +63,6 @@ servicos_map = {
     'recomendacao': servico_recomendacao
 }
 # POLIMORFISMO EM AÇÃO - Função que executa operações em qualquer serviço
-# Independente do tipo específico do objeto, todos respondem às mesmas mensagens
 def executar_crud(servico_nome, operacao, *args, **kwargs):
     servico = servicos_map.get(servico_nome)
     if not servico:
@@ -276,7 +290,34 @@ def alterar_senha_usuario(auth, usuario_logado):
     except Exception as e:
         print(f"Erro ao alterar senha: {e}")
 
-def gerenciar_treinos(usuario_logado,ServiceFactory):
+def gerenciar_treinos(usuario_logado, factory: ServiceFactory):
+    servico_treino = factory.create_workout_service()
+    servico_video = factory.create_video_service()
+
+    # Mapeia as opções do menu para os objetos de comando correspondentes.
+    commands = {
+        "1": ListarPlanosTreinoCommand(servico_treino, usuario_logado),
+        "2": CriarPlanoTreinoCommand(servico_treino, usuario_logado),
+        "3": DeletarPlanoTreinoCommand(servico_treino, usuario_logado),
+        "4": AssociarVideoCommand(servico_treino, servico_video, usuario_logado),
+        "5": AdicionarExercicioCommand(servico_treino, usuario_logado),
+        "6": RemoverExercicioCommand(servico_treino, usuario_logado),
+        "7": AtualizarPlanoCommand(servico_treino, usuario_logado),
+    }
+
+    while True:
+        op = exibir_menu_treinos()
+        if op == "0":
+            break
+        
+        # O 'Invoker' é esta parte: ele busca e executa o comando sem
+        # precisar saber o que o comando faz.
+        command = commands.get(op)
+        if command:
+            command.execute()
+        else:
+            print("Opção inválida.")
+
     while True:
         subop = exibir_menu_treinos()
         if subop == "1":
