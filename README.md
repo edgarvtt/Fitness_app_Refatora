@@ -9,7 +9,7 @@ Código Original: https://github.com/jfdt10/Projeto_Software_OO_Fitness_App , se
 
 ## Versão Atual 
 
-V.1.3 Aplicando Padrões de Projetos - Comportamentais
+V.1.4 Aplicando Padrões de Projetos - Criacionais - Singleton
 
 [versões anteriores](https://github.com/edgarvtt/Fitness_app_Refatora?tab=readme-ov-file#vers%C3%B5es-anteriores)
 
@@ -41,7 +41,7 @@ foi implementado o padrão 'Abstract Factory' para centralizar e desagrupar a cr
 **💡Solução:** Construi uma "Factory" (TinyDBServiceFactory) que é a única responsável por saber como construir todos os serviços. O main.py agora apenas instancia essa fábrica uma vez e a distribui para onde for necessário.<br/><br/>
 **✅Benefício:** Se no futuro quiser trocar o TinyDB por outro banco de dados, só precisaremos criar uma nova fábrica. O resto do código não precisa de nenhuma alteração, tornando o sistema muito mais flexível e fácil de manter.<br/><br/>
 
-## 💍🚫 Singleton {Padrão Criacional}
+##  ★ Singleton {Padrão Criacional}
 
 Foi implementado o padrão 'Singleton' para garantir que a classe 'ServicoAutenticacao' tenha apenas uma única instância em toda a aplicação, partilhando o mesmo estado de autenticação. <br/><br/>
 
@@ -156,6 +156,7 @@ python -m fitness_app.main
 ```
 
 ## Versões Anteriores
-V.1.0 Refatoração - Analisando os requesitos funcionais
-V.1.1 Aplicando Padrões de Projetos Criacionais
-V.1.2 Aplicando Padrões de Projetos Comportamentais
+V.1.0 Refatoração - Analisando os requesitos funcionais </br>
+V.1.1 Aplicando Padrões de Projetos Criacionais - Abastract Factory </br>
+V.1.2 Aplicando Padrões de Projetos Comportamentais - Command </br>
+V.1.3 Aplicando Padrões de Projetos Criacionais - Singleton </br>
