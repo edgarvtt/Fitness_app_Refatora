@@ -1,3 +1,5 @@
+# fitness_app/main.py
+
 from fitness_app.core.auth import ServicoAutenticacao
 from fitness_app.terminal.interface import exibir_menu_principal, exibir_menu_usuario
 from fitness_app.terminal.menus import (
@@ -7,11 +9,16 @@ from fitness_app.terminal.menus import (
     gerenciar_feedback, gerenciar_forum, alterar_senha_usuario, recuperar_senha_usuario
 )
 from fitness_app.factories import TinyDBServiceFactory
+from fitness_app.core.database import db  # 1. Importe a instância 'db'
 
 def main():
-    auth = ServicoAutenticacao()
+    # 2. Obtém a instância Singleton. 
+    # Não importa quantas vezes chame ServicoAutenticacao(),
+    # será sempre o mesmo objeto.
+    auth = ServicoAutenticacao() 
+    
     factory = TinyDBServiceFactory()
-    usuario_logado = None # Inicializa a variável usuario_logado como None (sem usuário logado)
+    usuario_logado = None 
 
     while True:
         if not usuario_logado:
@@ -51,7 +58,7 @@ def main():
             elif op == "7":
                 gerenciar_videos(usuario_logado, factory)
             elif op == "8":
-                gerenciar_recomendacoes(usuario_logado, auth, factory)
+                gerenciar_recomendacoes(usuario_logado, auth, factory) 
             elif op == "9":
                 gerenciar_feedback(usuario_logado, factory)
             elif op == "10":
@@ -63,6 +70,9 @@ def main():
                 print("Logout realizado.")
             else:
                 print("Opção inválida.")
+
+    # 3. Adicione esta linha para fechar a conexão do DB ao sair
+    db.close()
 
 if __name__ == "__main__":
     main()

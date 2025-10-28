@@ -1,101 +1,78 @@
+# fitness_app/core/database.py
+
 from tinydb import TinyDB, Query
 from datetime import datetime
 import os
 from .abc import RepositorioBase
+
+# Garante que o diretório de dados exista
 os.makedirs('fitness_app/data', exist_ok=True)
 
+# 1. Criamos a instância global do banco de dados UMA VEZ e partilhamo-la.
 db = TinyDB('fitness_app/data/fitness.json')
 
-# Herança de Classe Abstrata
 class RepositorioTinyDB(RepositorioBase):
-    def __init__(self, tabela, db_path='fitness_app/data/fitness.json'):
+    # 2. Removemos o 'db_path' - já não é necessário
+    def __init__(self, tabela): 
         super().__init__(tabela)
-        self._db = TinyDB(db_path)
+        
+        # 3. ESTA É A CORREÇÃO CRÍTICA:
+        # Em vez de criar um novo TinyDB(), usamos a instância 'db' global.
+        self._db = db 
+        # -------------------------
+        
         self._table = self._db.table(tabela) 
 
     def inserir(self, obj):
-        if hasattr(obj, 'to_dict'): ## qualquer objeto pode ser chamado aqui de forma uniforme
-            data = obj.to_dict()
-        elif isinstance(obj, dict):
-            data = obj
-        else:
-            raise TypeError('obj devem ser dicionários ou modelos com to_dict()')
-        data['criado_em'] = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+        data = obj.to_dict() if hasattr(obj, 'to_dict') else obj
+        if 'criado_em' not in data or data['criado_em'] is None:
+             data['criado_em'] = datetime.now().strftime('%d/%m/%Y %H:%M:%S')
         return self._table.insert(data)
 
-    def insert_multiple(self, items):
-        prepared = []
-        for obj in items:
-            if hasattr(obj, 'to_dict'):
-                prepared.append(obj.to_dict()) # Duck typing adicionado uso de função sem verificar qual classe para inserção múltipla no Banco
-            elif isinstance(obj, dict):
-                prepared.append(obj)
-            else:
-                raise TypeError('items devem ser dicionários ou modelos com to_dict()')
-        return self._table.insert_multiple(prepared)
-
     def listar(self, query=None, model_cls=None):
-        if query:
-            regs = self._table.search(query)
-        else:
-            regs = self._table.all()
-        
+        regs = self._table.search(query) if query else self._table.all()
         if model_cls and hasattr(model_cls, 'from_dict'):
-            tipo_esperado = model_cls.__name__
-            regs_filtrados = [r for r in regs if r.get('_tipo') == tipo_esperado or '_tipo' not in r]
-            return [model_cls.from_dict(r) for r in regs_filtrados]
+            return [model_cls.from_dict(r) for r in regs]
         return regs
 
     def obter(self, id, model_cls=None):
-        Q = Query()
-        results = self._table.search(Q.id == id)
-        if not results:
-            return None
-        rec = results[0]
-        if model_cls and hasattr(model_cls, 'from_dict'):
+        rec = self._table.get(Query().id == id)
+        if rec and model_cls:
             return model_cls.from_dict(rec)
         return rec
 
-    def atualizar(self, id, data):
+    def obter_por_usuario(self, id, usuario_email, model_cls=None):
         Q = Query()
-        results = self._table.search(Q.id == id)
-        if results:
-            doc_ids = [r.doc_id for r in results]
-            self._table.update(data, doc_ids=doc_ids)
-            return True
-        return False
+        rec = self._table.get((Q.id == id) & (Q.usuario_email == usuario_email))
+        if rec and model_cls:
+            return model_cls.from_dict(rec)
+        return rec
+        
+    def atualizar(self, id, data, usuario_email=None):
+        Q = Query()
+        query = (Q.id == id)
+        if usuario_email:
+            # Garante que só atualize se o email do usuário também bater
+            query &= (Q.usuario_email == usuario_email)
+        
+        return self._table.update(data, query) > 0
 
-    def deletar(self, id):
+    def deletar(self, id, usuario_email=None):
         Q = Query()
-        results = self._table.search(Q.id == id)
-        if results:
-            doc_ids = [r.doc_id for r in results]
-            self._table.remove(doc_ids=doc_ids)
-            return True
-        return False
+        query = (Q.id == id)
+        if usuario_email:
+            # Garante que só delete se o email do usuário também bater
+            query &= (Q.usuario_email == usuario_email)
+
+        return self._table.remove(query) > 0
 
     def truncate(self):
         self._table.truncate()
 
     def usuario_existe(self, field, value):
-        Q = Query()
-        return self._table.contains(Q[field] == value)
-
-
-def backup_banco(arquivo='backup_fitness_app.json'):
-    dados = db.storage.read()
-    with open(arquivo, 'w', encoding='utf-8') as f:
-        f.write(dados)
-    print(f"Backup salvo em {arquivo}")
-
-
-def importar_banco(arquivo='backup_fitness_app.json'):
-    with open(arquivo, 'r', encoding='utf-8') as f:
-        dados = f.read()
-    db.storage.write(dados)
-    print(f"Dados importados de {arquivo}")
+        return self._table.contains(Query()[field] == value)
 
 # Encapsulamento para controle de acesso do módulo
 __all__ = [
-    "db", "RepositorioTinyDB", "backup_banco", "importar_banco"
+    "db", "RepositorioTinyDB"
 ]
