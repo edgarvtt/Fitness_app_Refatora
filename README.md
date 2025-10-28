@@ -47,13 +47,12 @@ Foi implementado o padrão 'Singleton' para garantir que a classe 'ServicoAutent
 
 **😨 Problema:** Antes, o main.py criava uma nova instância de ServicoAutenticacao. Se outras partes do código fizessem o mesmo, poderíamos ter múltiplos gestores de autenticação. Além disso, um bug crítico na gestão da base de dados fazia com que os utilizadores criados pelo script seed_database.py não fossem guardados no disco, levando ao erro "usuário não encontrado". </br></br>
 
-**💡 Solução:** </br></br>
-
+**💡 Solução:** 
 Base de Dados Centralizada: O ficheiro database.py foi modificado para criar uma instância global db = TinyDB(...). Todos os repositórios agora usam esta instância partilhada em vez de criarem novas ligações.</br>
 
 Guardar Dados: Adicionámos db.close() ao final dos scripts seed_database.py e main.py, forçando o TinyDB a guardar os dados no ficheiro fitness.json.</br>
 
-Implementação do Singleton: A classe ServicoAutenticacao agora usa os métodos __new__ e __init__ com uma flag _initialized para garantir que, independentemente de quantas vezes for chamada, apenas uma instância seja criada e inicializada.</br>
+Implementação do Singleton: A classe ServicoAutenticacao agora usa os métodos __new__ e __init__ com uma flag _initialized para garantir que, independentemente de quantas vezes for chamada, apenas uma instância seja criada e inicializada.</br></br>
 
 **✅ Benefício:** O bug "usuário não encontrado" foi corrigido. Agora, temos um ponto de acesso global e único para a autenticação (ServicoAutenticacao) que acede a uma ligação de base de dados única e fiável, garantindo que toda a aplicação partilha o mesmo estado de login </br></br>
 
