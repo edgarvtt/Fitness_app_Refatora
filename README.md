@@ -58,6 +58,8 @@ Implementação do Singleton: A classe ServicoAutenticacao agora usa os métodos
 
 ## 3️⃣ - 🏗️ Builder {Padrão Criacional}
 
+(trabalhando nisso)
+
 ## 4️⃣ - ⌘ Command {Padrão Comportamental}
 
 Foi implementado o padrão 'Command' para transformar cada ação do menu em um objeto independente, desacoplando a interface do usuário da lógica que executa a ação, resumindo o padrão Command encapsula um pedido como um objeto, permitindo separar quem solicita a ação de quem efetivamente a executa.<br/><br/>
