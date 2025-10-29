@@ -56,7 +56,9 @@ Implementação do Singleton: A classe ServicoAutenticacao agora usa os métodos
 
 **✅ Benefício:** O bug "usuário não encontrado" foi corrigido. Agora, temos um ponto de acesso global e único para a autenticação (ServicoAutenticacao) que acede a uma ligação de base de dados única e fiável, garantindo que toda a aplicação partilha o mesmo estado de login </br></br>
 
-## 3️⃣ - ⌘ Command {Padrão Comportamental}
+## 3️⃣ - 🏗️ Builder {Padrão Criacional}
+
+## 4️⃣ - ⌘ Command {Padrão Comportamental}
 
 Foi implementado o padrão 'Command' para transformar cada ação do menu em um objeto independente, desacoplando a interface do usuário da lógica que executa a ação, resumindo o padrão Command encapsula um pedido como um objeto, permitindo separar quem solicita a ação de quem efetivamente a executa.<br/><br/>
 
