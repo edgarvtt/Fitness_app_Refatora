@@ -54,7 +54,7 @@ Guardar Dados: Adicionámos db.close() ao final dos scripts seed_database.py e m
 
 Implementação do Singleton: A classe ServicoAutenticacao agora usa os métodos __new__ e __init__ com uma flag _initialized para garantir que, independentemente de quantas vezes for chamada, apenas uma instância seja criada e inicializada.</br></br>
 
-**✅ Benefício:** O bug "usuário não encontrado" foi corrigido. Agora, temos um ponto de acesso global e único para a autenticação (ServicoAutenticacao) que acede a uma ligação de base de dados única e fiável, garantindo que toda a aplicação partilha o mesmo estado de login </br></br>
+**✅ Benefício:**  Agora, temos um ponto de acesso global e único para a autenticação (ServicoAutenticacao) que acede a uma ligação de base de dados única e fiável, garantindo que toda a aplicação compartilha o mesmo estado de login </br></br>
 
 ## 3️⃣ - 🏗️ Builder {Padrão Criacional}
 
