@@ -33,7 +33,7 @@ todas as funcionalidades foram aplicadas corretamentes após testes, são elas:
 
 Abaixo estão os Padrões de Projetos Criacionais adotados para a refatoração do Projeto
 
-## 🏭 Abstract Factory {Padrão Criacional}
+## 1️⃣ - 🏭 Abstract Factory {Padrão Criacional}
 
 foi implementado o padrão 'Abstract Factory' para centralizar e desagrupar a criação dos "Serviços" (como ServicoTreino, ServicoAtividade, etc...) da lógica principal do app.<br/>
 
@@ -41,7 +41,7 @@ foi implementado o padrão 'Abstract Factory' para centralizar e desagrupar a cr
 **💡Solução:** Construi uma "Factory" (TinyDBServiceFactory) que é a única responsável por saber como construir todos os serviços. O main.py agora apenas instancia essa fábrica uma vez e a distribui para onde for necessário.<br/><br/>
 **✅Benefício:** Se no futuro quiser trocar o TinyDB por outro banco de dados, só precisaremos criar uma nova fábrica. O resto do código não precisa de nenhuma alteração, tornando o sistema muito mais flexível e fácil de manter.<br/><br/>
 
-##  ★ Singleton {Padrão Criacional}
+## 2️⃣ - ★ Singleton {Padrão Criacional}
 
 Foi implementado o padrão 'Singleton' para garantir que a classe 'ServicoAutenticacao' tenha apenas uma única instância em toda a aplicação, partilhando o mesmo estado de autenticação. <br/><br/>
 
@@ -56,7 +56,7 @@ Implementação do Singleton: A classe ServicoAutenticacao agora usa os métodos
 
 **✅ Benefício:** O bug "usuário não encontrado" foi corrigido. Agora, temos um ponto de acesso global e único para a autenticação (ServicoAutenticacao) que acede a uma ligação de base de dados única e fiável, garantindo que toda a aplicação partilha o mesmo estado de login </br></br>
 
-## ⌘ Command {Padrão Comportamental}
+## 3️⃣ - ⌘ Command {Padrão Comportamental}
 
 Foi implementado o padrão 'Command' para transformar cada ação do menu em um objeto independente, desacoplando a interface do usuário da lógica que executa a ação, resumindo o padrão Command encapsula um pedido como um objeto, permitindo separar quem solicita a ação de quem efetivamente a executa.<br/><br/>
 
